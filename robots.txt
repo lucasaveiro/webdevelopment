@@ -1,0 +1,25 @@
+# robots.txt para Lucas Aveiro Portfolio
+
+# Permitir que todos os buscadores indexem todo o site
+User-agent: *
+Allow: /
+
+# Bloquear acesso a arquivos específicos (se necessário)
+# Disallow: /private/
+# Disallow: /*.pdf$
+
+# Sitemap location (SUBSTITUA seu-usuario pela sua URL do GitHub)
+Sitemap: https://lucasaveiro.github.io/webdevelopment/sitemap.xml
+
+# Crawl-delay (opcional - tempo em segundos entre requisições)
+# Crawl-delay: 1
+
+# Buscadores específicos (exemplos)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
