@@ -8,7 +8,7 @@ Allow: /
 # Disallow: /private/
 # Disallow: /*.pdf$
 
-# Sitemap location (SUBSTITUA seu-usuario pela sua URL do GitHub)
+# Sitemap location
 Sitemap: https://lucasaveiro.github.io/webdevelopment/sitemap.xml
 
 # Crawl-delay (opcional - tempo em segundos entre requisições)
