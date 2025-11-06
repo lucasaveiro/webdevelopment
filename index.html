@@ -526,11 +526,193 @@
             font-size: 14px;
             transition: gap 0.3s;
         }
-        
+
         .project-link:hover {
             gap: 12px;
         }
-        
+
+        /* Results proof */
+        .results-wrap {
+            margin-top: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .results-proof {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(124, 58, 237, 0.12));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+            padding: 32px 36px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .proof-badge {
+            background: rgba(10, 10, 15, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 999px;
+            padding: 12px 22px;
+            display: flex;
+            flex-direction: column;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 12px;
+            gap: 3px;
+        }
+
+        .proof-label {
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .proof-years {
+            color: var(--text-secondary);
+        }
+
+        .proof-copy {
+            flex: 1 1 320px;
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .proof-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .proof-stat {
+            min-width: 160px;
+            padding: 14px 18px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .proof-stat-value {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .proof-stat-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .result-card {
+            position: relative;
+            padding: 32px;
+            border-radius: 24px;
+            background: var(--bg-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transition: transform 0.3s;
+        }
+
+        .result-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top right, rgba(0, 212, 255, 0.18), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .result-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .result-card:hover::after {
+            opacity: 1;
+        }
+
+        .result-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 16px;
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        .result-client {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .result-quote {
+            font-size: 20px;
+            line-height: 1.6;
+            font-weight: 600;
+            margin: 0;
+            color: var(--text-primary);
+        }
+
+        .result-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+        }
+
+        .result-metric {
+            padding: 12px 14px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .metric-value {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .metric-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+        }
+
+        .result-link {
+            margin-top: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+            color: var(--accent-primary);
+            text-decoration: none;
+        }
+
+        .result-link span {
+            transition: transform 0.3s;
+        }
+
+        .result-link:hover span {
+            transform: translateX(4px);
+        }
+
         /* CTA Section */
         .cta-section {
             background: var(--bg-secondary);
@@ -789,6 +971,19 @@
                 margin: 60px 25px;
                 padding: 50px 30px;
             }
+
+            .results-proof {
+                flex-direction: column;
+                padding: 28px;
+            }
+
+            .proof-copy {
+                font-size: 18px;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -985,45 +1180,83 @@
                     </a>
                 </div>
             </div>
-            
-            <div class="project-card">
-                <div class="project-image">Result</div>
-                <div class="project-content">
-                    <h3>Renata, artisan bakery owner</h3>
-                    <p>"In two months we saw 40% more WhatsApp orders and started getting catering requests from new neighborhoods."</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">+40% leads</span>
-                        <span class="tech-badge">3-week turnaround</span>
-                        <span class="tech-badge">High-converting menu</span>
+        </div>
+        
+        <div class="results-wrap">
+            <div class="results-proof">
+                <div class="proof-badge">
+                    <span class="proof-label">Track record</span>
+                    <span class="proof-years">Local service focus</span>
+                </div>
+                <p class="proof-copy">
+                    5+ years building websites for local service, retail, and hospitality brands. Clients typically report 30-50% more qualified inquiries within the first 60 days.
+                </p>
+                <div class="proof-stats">
+                    <div class="proof-stat">
+                        <div class="proof-stat-value">30-50%</div>
+                        <div class="proof-stat-label">More qualified inquiries</div>
                     </div>
-                    <a href="#contact" class="project-link">
+                    <div class="proof-stat">
+                        <div class="proof-stat-value">60 days</div>
+                        <div class="proof-stat-label">Average time to feel the lift</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="results-grid">
+                <article class="result-card">
+                    <div class="result-meta">
+                        <span class="result-client">Renata — Artisan bakery owner</span>
+                        <span class="result-industry">Food & beverage</span>
+                    </div>
+                    <p class="result-quote">"In two months we saw 40% more WhatsApp orders and started getting catering requests from new neighborhoods."</p>
+                    <div class="result-metrics">
+                        <div class="result-metric">
+                            <div class="metric-value">+40%</div>
+                            <div class="metric-label">Leads</div>
+                        </div>
+                        <div class="result-metric">
+                            <div class="metric-value">3 weeks</div>
+                            <div class="metric-label">Turnaround</div>
+                        </div>
+                        <div class="result-metric">
+                            <div class="metric-value">Menu UX</div>
+                            <div class="metric-label">High-converting layout</div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="result-link">
                         I want results like this
                         <span>&gt;</span>
                     </a>
-                </div>
-            </div>
-            
-            <div class="project-card">
-                <div class="project-image">Result</div>
-                <div class="project-content">
-                    <h3>Joao, family dental clinic</h3>
-                    <p>"The new site finally shows our expertise. Online bookings doubled and patients mention the website before their first visit."</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">2x bookings</span>
-                        <span class="tech-badge">SEO boost</span>
-                        <span class="tech-badge">Patient trust</span>
+                </article>
+                
+                <article class="result-card">
+                    <div class="result-meta">
+                        <span class="result-client">Joao — Family dental clinic</span>
+                        <span class="result-industry">Healthcare</span>
                     </div>
-                    <a href="#contact" class="project-link">
+                    <p class="result-quote">"The new site finally shows our expertise. Online bookings doubled and patients mention the website before their first visit."</p>
+                    <div class="result-metrics">
+                        <div class="result-metric">
+                            <div class="metric-value">2x</div>
+                            <div class="metric-label">Bookings</div>
+                        </div>
+                        <div class="result-metric">
+                            <div class="metric-value">SEO boost</div>
+                            <div class="metric-label">Local visibility</div>
+                        </div>
+                        <div class="result-metric">
+                            <div class="metric-value">Patient trust</div>
+                            <div class="metric-label">Mentioned pre-visit</div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="result-link">
                         Book my free diagnosis
                         <span>&gt;</span>
                     </a>
-                </div>
+                </article>
             </div>
         </div>
-        
-        <p class="section-description">
-            5+ years building websites for local service, retail, and hospitality brands. Clients typically report 30-50% more qualified inquiries within the first 60 days.
-        </p>
     </section>
 
     <!-- CTA Section -->
