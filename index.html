@@ -713,6 +713,175 @@
             transform: translateX(4px);
         }
 
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--bg-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
+        }
+
+        .pricing-card-featured {
+            border: 2px solid rgba(0, 212, 255, 0.4);
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(124, 58, 237, 0.12));
+            position: relative;
+        }
+
+        .pricing-card-featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-1);
+            opacity: 0.05;
+            border-radius: 24px;
+            z-index: -1;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -12px;
+            right: 30px;
+            background: var(--gradient-1);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+        }
+
+        .pricing-header {
+            margin-bottom: 30px;
+        }
+
+        .pricing-header h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .pricing-audience {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .pricing-price {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .price-amount {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .price-currency {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-right: 4px;
+        }
+
+        .price-range {
+            font-size: 48px;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .price-period {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .price-monthly {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .price-note {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .pricing-features {
+            flex: 1;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .pricing-features ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pricing-features li {
+            padding: 12px 0;
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .pricing-card-featured .pricing-features li::before {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
         /* CTA Section */
         .cta-section {
             background: var(--bg-secondary);
@@ -939,7 +1108,11 @@
             }
             
             .nav-links {
-                gap: 25px;
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
             }
             
             .hero {
@@ -984,6 +1157,24 @@
             .results-grid {
                 grid-template-columns: 1fr;
             }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card {
+                padding: 30px;
+            }
+
+            .price-range {
+                font-size: 36px;
+            }
+
+            .featured-badge {
+                right: 20px;
+                font-size: 11px;
+                padding: 5px 12px;
+            }
         }
     </style>
 </head>
@@ -1002,6 +1193,7 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#skills">Challenges</a></li>
             <li><a href="#projects">Solution</a></li>
+            <li><a href="#pricing">Pricing</a></li>
             <li><a href="#contact">Get Started</a></li>
         </ul>
     </nav>
@@ -1259,6 +1451,101 @@
         </div>
     </section>
 
+    <!-- Pricing Section -->
+    <section class="section fade-in" id="pricing">
+        <div class="section-header">
+            <div class="section-label">Transparent Pricing</div>
+            <h2>Choose the package that fits your business</h2>
+            <p class="section-description">
+                Fixed pricing with clear deliverables. No surprises, no hidden fees—just honest pricing for websites that work.
+            </p>
+        </div>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>The Starter Site</h3>
+                    <p class="pricing-audience">Sole proprietors, freelancers, or services needing an online brochure.</p>
+                </div>
+                <div class="pricing-price">
+                    <div class="price-amount">
+                        <span class="price-currency">$</span>
+                        <span class="price-range">2,500 - 3,500</span>
+                    </div>
+                    <div class="price-period">One-time setup</div>
+                    <div class="price-monthly">$99/month <span class="price-note">(Basic Hosting)</span></div>
+                </div>
+                <div class="pricing-features">
+                    <h4>What's included:</h4>
+                    <ul>
+                        <li>3 Pages (Home, Services, Contact)</li>
+                        <li>Mobile-Ready Design</li>
+                        <li>Basic SEO</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="btn btn-secondary" style="width: 100%; justify-content: center; margin-top: auto;">
+                    Get Started
+                </a>
+            </div>
+            
+            <div class="pricing-card pricing-card-featured">
+                <div class="featured-badge">Recommended</div>
+                <div class="pricing-header">
+                    <h3>The Lead Generator</h3>
+                    <p class="pricing-audience">Small service businesses (plumbers, agencies, consultants) focused on getting leads.</p>
+                </div>
+                <div class="pricing-price">
+                    <div class="price-amount">
+                        <span class="price-currency">$</span>
+                        <span class="price-range">4,500 - 6,500</span>
+                    </div>
+                    <div class="price-period">One-time setup</div>
+                    <div class="price-monthly">$129/month <span class="price-note">(CMS Hosting)</span></div>
+                </div>
+                <div class="pricing-features">
+                    <h4>What's included:</h4>
+                    <ul>
+                        <li>5-7 Pages</li>
+                        <li>Webflow CMS (for testimonials/blog)</li>
+                        <li>1 Lead Form Integration (CRM/Email)</li>
+                        <li>Basic Copy Refinement</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: auto;">
+                    Get Started
+                </a>
+            </div>
+            
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>The Scaler (Complex)</h3>
+                    <p class="pricing-audience">Businesses needing a high-volume blog, multiple custom integrations, or a small e-commerce element.</p>
+                </div>
+                <div class="pricing-price">
+                    <div class="price-amount">
+                        <span class="price-currency">$</span>
+                        <span class="price-range">7,500 - 12,000+</span>
+                    </div>
+                    <div class="price-period">One-time setup</div>
+                    <div class="price-monthly">$169 - $299/month</div>
+                </div>
+                <div class="pricing-features">
+                    <h4>What's included:</h4>
+                    <ul>
+                        <li>Up to 10 Pages</li>
+                        <li>Advanced CMS/E-commerce Integration</li>
+                        <li>Custom UI/Animations</li>
+                        <li>Detailed SEO setup</li>
+                        <li>Full Copywriting</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="btn btn-secondary" style="width: 100%; justify-content: center; margin-top: auto;">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
         <section class="cta-section fade-in" id="contact">
         <div class="cta-content">
@@ -1317,6 +1604,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#skills">Challenges</a></li>
                     <li><a href="#projects">Solution</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#contact">Get Started</a></li>
                 </ul>
             </div>
