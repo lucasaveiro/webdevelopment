@@ -93,8 +93,7 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            backdrop-filter: blur(20px);
-            background: rgba(10, 10, 15, 0.8);
+            background: #000000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             animation: slideDown 0.8s ease-out;
         }
@@ -105,13 +104,75 @@
         }
         
         .logo {
+            display: flex;
+            align-items: center;
+            height: 50px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            height: 50px;
+            border: 2px solid #ffffff;
+            border-radius: 50px;
+            padding: 0;
+            overflow: hidden;
+            background: transparent;
+        }
+        
+        .logo-left {
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            height: 100%;
+            border-right: 2px solid #ffffff;
+        }
+        
+        .logo-pro9 {
+            display: flex;
+            align-items: center;
+            gap: 4px;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 24px;
             font-weight: 700;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 20px;
+            color: #ffffff;
+        }
+        
+        .logo-o {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            position: relative;
+        }
+        
+        .logo-o-inner {
+            width: 10px;
+            height: 10px;
+            background: #000000;
+            border-radius: 2px;
+        }
+        
+        .logo-9 {
+            color: #00d4ff;
+        }
+        
+        .logo-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8px 20px;
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            color: #ffffff;
+            line-height: 1.3;
+            text-align: left;
         }
         
         .nav-links {
@@ -716,9 +777,9 @@
         /* Pricing Section */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -802,6 +863,16 @@
             display: flex;
             align-items: flex-start;
             margin-bottom: 8px;
+            min-height: 60px;
+        }
+
+        .price-amount-contact {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .price-amount-contact .price-contact {
+            text-align: center;
         }
 
         .price-currency {
@@ -819,6 +890,16 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             line-height: 1;
+        }
+
+        .price-contact {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-primary);
+            background: none;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: var(--text-primary);
+            background-clip: unset;
         }
 
         .price-period {
@@ -1107,6 +1188,37 @@
                 padding: 20px 25px;
             }
             
+            .logo {
+                height: 40px;
+            }
+            
+            .logo-container {
+                height: 40px;
+            }
+            
+            .logo-pro9 {
+                font-size: 16px;
+            }
+            
+            .logo-o {
+                width: 16px;
+                height: 16px;
+            }
+            
+            .logo-o-inner {
+                width: 8px;
+                height: 8px;
+            }
+            
+            .logo-left {
+                padding: 0 15px;
+            }
+            
+            .logo-right {
+                padding: 6px 15px;
+                font-size: 9px;
+            }
+            
             .nav-links {
                 gap: 15px;
             }
@@ -1170,6 +1282,14 @@
                 font-size: 36px;
             }
 
+            .price-contact {
+                font-size: 28px;
+            }
+
+            .price-amount {
+                min-height: 50px;
+            }
+
             .featured-badge {
                 right: 20px;
                 font-size: 11px;
@@ -1188,7 +1308,24 @@
 
     <!-- Navigation -->
     <nav>
-        <div class="logo">Lucas Aveiro</div>
+        <div class="logo">
+            <div class="logo-container">
+                <div class="logo-left">
+                    <div class="logo-pro9">
+                        <span>PR</span>
+                        <div class="logo-o">
+                            <div class="logo-o-inner"></div>
+                        </div>
+                        <span class="logo-9">9</span>
+                    </div>
+                </div>
+                <div class="logo-right">
+                    <div>DIGITAL</div>
+                    <div>WEB</div>
+                    <div>SOLUTIONS</div>
+                </div>
+            </div>
+        </div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#skills">Challenges</a></li>
@@ -1457,7 +1594,7 @@
             <div class="section-label">Transparent Pricing</div>
             <h2>Choose the package that fits your business</h2>
             <p class="section-description">
-                Fixed pricing with clear deliverables. No surprises, no hidden fees—just honest pricing for websites that work.
+                Clear pricing with transparent deliverables. Standard packages with fixed rates, plus custom solutions for unique needs.
             </p>
         </div>
         
@@ -1470,7 +1607,7 @@
                 <div class="pricing-price">
                     <div class="price-amount">
                         <span class="price-currency">$</span>
-                        <span class="price-range">2,500 - 3,500</span>
+                        <span class="price-range">2,500</span>
                     </div>
                     <div class="price-period">One-time setup</div>
                     <div class="price-monthly">$99/month <span class="price-note">(Basic Hosting)</span></div>
@@ -1497,7 +1634,7 @@
                 <div class="pricing-price">
                     <div class="price-amount">
                         <span class="price-currency">$</span>
-                        <span class="price-range">4,500 - 6,500</span>
+                        <span class="price-range">4,500</span>
                     </div>
                     <div class="price-period">One-time setup</div>
                     <div class="price-monthly">$129/month <span class="price-note">(CMS Hosting)</span></div>
@@ -1506,7 +1643,7 @@
                     <h4>What's included:</h4>
                     <ul>
                         <li>5-7 Pages</li>
-                        <li>Webflow CMS (for testimonials/blog)</li>
+                        <li>CMS (for testimonials/blog)</li>
                         <li>1 Lead Form Integration (CRM/Email)</li>
                         <li>Basic Copy Refinement</li>
                     </ul>
@@ -1524,10 +1661,10 @@
                 <div class="pricing-price">
                     <div class="price-amount">
                         <span class="price-currency">$</span>
-                        <span class="price-range">7,500 - 12,000+</span>
+                        <span class="price-range">7,500</span>
                     </div>
                     <div class="price-period">One-time setup</div>
-                    <div class="price-monthly">$169 - $299/month</div>
+                    <div class="price-monthly">$169/month</div>
                 </div>
                 <div class="pricing-features">
                     <h4>What's included:</h4>
@@ -1541,6 +1678,36 @@
                 </div>
                 <a href="#contact" class="btn btn-secondary" style="width: 100%; justify-content: center; margin-top: auto;">
                     Get Started
+                </a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>The Flagship (Custom)</h3>
+                    <p class="pricing-audience">Enterprise-level businesses requiring custom solutions, advanced features, or unique requirements beyond standard packages.</p>
+                </div>
+                <div class="pricing-price">
+                    <div class="price-amount price-amount-contact">
+                        <span class="price-contact">Contact Us</span>
+                    </div>
+                    <div class="price-period">Custom pricing</div>
+                    <div class="price-monthly">Flexible hosting options</div>
+                </div>
+                <div class="pricing-features">
+                    <h4>What's included:</h4>
+                    <ul>
+                        <li>Unlimited Pages & Custom Architecture</li>
+                        <li>Full E-commerce Platform Integration</li>
+                        <li>Multi-language & Multi-region Support</li>
+                        <li>Custom API Integrations & Third-party Tools</li>
+                        <li>Advanced Analytics & Custom Dashboards</li>
+                        <li>Dedicated Account Management</li>
+                        <li>Priority Support & Ongoing Maintenance</li>
+                        <li>Custom Development & Unique Features</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="btn btn-secondary" style="width: 100%; justify-content: center; margin-top: auto;">
+                    Contact Us
                 </a>
             </div>
         </div>
