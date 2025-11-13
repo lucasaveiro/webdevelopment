@@ -1,1851 +1,1038 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Small Business Websites That Sell | Lucas Aveiro</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Grotesk:wght@500;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #13131a;
-            --bg-tertiary: #1a1a24;
-            --accent-primary: #00d4ff;
-            --accent-secondary: #7c3aed;
-            --text-primary: #ffffff;
-            --text-secondary: #a1a1aa;
-            --gradient-1: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
-            --gradient-2: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        /* Animated Background */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-        
-        .bg-gradient {
-            position: absolute;
-            width: 800px;
-            height: 800px;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.15;
-            animation: float 20s ease-in-out infinite;
-        }
-        
-        .bg-gradient-1 {
-            background: var(--gradient-1);
-            top: -200px;
-            left: -200px;
-            animation-delay: 0s;
-        }
-        
-        .bg-gradient-2 {
-            background: var(--gradient-2);
-            bottom: -200px;
-            right: -200px;
-            animation-delay: 5s;
-        }
-        
-        .bg-gradient-3 {
-            background: linear-gradient(135deg, #ec4899 0%, #f59e0b 100%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation-delay: 10s;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(100px, -100px) scale(1.1); }
-            66% { transform: translate(-100px, 100px) scale(0.9); }
-        }
-        
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 25px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: #000000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            animation: slideDown 0.8s ease-out;
-        }
-        
-        @keyframes slideDown {
-            from { transform: translateY(-100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            height: 50px;
-        }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            height: 50px;
-            border: 2px solid #ffffff;
-            border-radius: 50px;
-            padding: 0;
-            overflow: hidden;
-            background: transparent;
-        }
-        
-        .logo-left {
-            display: flex;
-            align-items: center;
-            padding: 0 20px;
-            height: 100%;
-            border-right: 2px solid #ffffff;
-        }
-        
-        .logo-pro9 {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 20px;
-            color: #ffffff;
-        }
-        
-        .logo-o {
-            width: 20px;
-            height: 20px;
-            border: 2px solid #ffffff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: transparent;
-            position: relative;
-        }
-        
-        .logo-o-inner {
-            width: 10px;
-            height: 10px;
-            background: #000000;
-            border-radius: 2px;
-        }
-        
-        .logo-9 {
-            color: #00d4ff;
-        }
-        
-        .logo-right {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 8px 20px;
-            height: 100%;
-            font-family: 'Inter', sans-serif;
-            font-size: 11px;
-            font-weight: 500;
-            color: #ffffff;
-            line-height: 1.3;
-            text-align: left;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-1);
-            transition: width 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 100px 50px 50px;
-            position: relative;
-        }
-        
-        .hero-content {
-            max-width: 1200px;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        
-        .hero-text {
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        @keyframes fadeInUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        .hero-label {
-            display: inline-block;
-            padding: 8px 16px;
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            border-radius: 30px;
-            color: var(--accent-primary);
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 25px;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        
-        h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 64px;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 25px;
-            letter-spacing: -2px;
-        }
-        
-        .gradient-text {
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero-description {
-            font-size: 18px;
-            color: var(--text-secondary);
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            padding: 16px 32px;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 16px;
-            text-decoration: none;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            border: none;
-        }
-        
-        .btn-primary {
-            background: var(--gradient-1);
-            color: white;
-            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 50px rgba(0, 212, 255, 0.5);
-        }
-        
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-primary);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-        
-        /* Floating Card */
-        .hero-visual {
-            position: relative;
-            animation: fadeInUp 1s ease-out 0.3s backwards;
-            display: flex;
-            justify-content: flex-end;
-            align-items: stretch;
-        }
-        
-        .floating-card {
-            flex: 0 1 520px;
-            min-width: 0;
-            width: min(520px, 100%);
-        }
-        
-        .floating-card {
-            background: var(--bg-secondary);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 40px;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-            animation: floatCard 6s ease-in-out infinite;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        
-        @keyframes floatCard {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .card-header {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 25px;
-        }
-        
-        .card-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--text-secondary);
-        }
-        
-        .card-dot:nth-child(1) { background: #ff5f57; }
-        .card-dot:nth-child(2) { background: #ffbd2e; }
-        .card-dot:nth-child(3) { background: #28ca42; }
-        
-        .code-line {
-            font-family: 'Monaco', monospace;
-            font-size: 14px;
-            margin-bottom: 12px;
-            opacity: 0;
-            animation: typeIn 0.5s ease-out forwards;
-        }
-        
-        .code-line:nth-child(1) { animation-delay: 1s; }
-        .code-line:nth-child(2) { animation-delay: 1.3s; }
-        .code-line:nth-child(3) { animation-delay: 1.6s; }
-        .code-line:nth-child(4) { animation-delay: 1.9s; }
-        
-        @keyframes typeIn {
-            from { transform: translateX(-20px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        
-        .code-keyword { color: #ff79c6; }
-        .code-function { color: #50fa7b; }
-        .code-string { color: #00d4ff; }
-        .code-number { color: #bd93f9; }
-        
-        /* Skills Section */
-        .section {
-            padding: 100px 50px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-        
-        .section-label {
-            color: var(--accent-primary);
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-        }
-        
-        h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        
-        .section-description {
-            font-size: 18px;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        
-        .skill-card {
-            background: var(--bg-secondary);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 35px;
-            transition: all 0.4s;
-            cursor: default;
-        }
-        
-        .skill-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(0, 212, 255, 0.3);
-            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
-        }
-        
-        .skill-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-1);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            margin-bottom: 25px;
-        }
-        
-        .skill-card:nth-child(2) .skill-icon { background: var(--gradient-2); }
-        .skill-card:nth-child(3) .skill-icon { background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%); }
-        .skill-card:nth-child(4) .skill-icon { background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%); }
-        
-        .skill-card h3 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-        
-        .skill-card p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-        
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        
-        .skill-tag {
-            padding: 6px 14px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            font-size: 12px;
-            color: var(--text-secondary);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
-        }
-        
-        .project-card {
-            background: var(--bg-secondary);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-        }
-        
-        .project-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 64px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .project-image::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 0deg, transparent, rgba(0, 212, 255, 0.1), transparent 30%);
-            animation: rotate 4s linear infinite;
-        }
-        
-        @keyframes rotate {
-            100% { transform: rotate(360deg); }
-        }
-        
-        .project-content {
-            padding: 30px;
-        }
-        
-        .project-card h3 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-        
-        .project-card p {
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-        
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-        
-        .tech-badge {
-            padding: 5px 12px;
-            background: rgba(124, 58, 237, 0.1);
-            border: 1px solid rgba(124, 58, 237, 0.3);
-            border-radius: 20px;
-            font-size: 11px;
-            color: #a78bfa;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--accent-primary);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: gap 0.3s;
-        }
+  <meta charset="UTF-8" />
+  <title>Pro9 Digital – Modern Websites for Local Businesses</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        .project-link:hover {
-            gap: 12px;
-        }
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
-        /* Results proof */
-        .results-wrap {
-            margin-top: 60px;
-            display: flex;
-            flex-direction: column;
-            gap: 35px;
-        }
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js" defer></script>
 
-        .results-proof {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(124, 58, 237, 0.12));
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 28px;
-            padding: 32px 36px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-            align-items: center;
-        }
+  <!-- Spline Viewer (3D Hero) -->
+  <script
+    type="module"
+    src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"
+    defer
+  ></script>
+  <!-- Spline viewer is a native web component you can embed with a .splinecode URL :contentReference[oaicite:0]{index=0} -->
 
-        .proof-badge {
-            background: rgba(10, 10, 15, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 999px;
-            padding: 12px 22px;
-            display: flex;
-            flex-direction: column;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            font-size: 12px;
-            gap: 3px;
-        }
+  <style>
+    :root {
+      --bg: #050712;
+      --bg-alt: #070a18;
+      --accent: #ff5b5b;
+      --accent-soft: rgba(255, 91, 91, 0.16);
+      --text: #f5f5f5;
+      --muted: #9ca3af;
+      --card: #0b1020;
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --radius-xl: 24px;
+      --max-w: 1120px;
+    }
 
-        .proof-label {
-            color: var(--accent-primary);
-            font-weight: 600;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        .proof-years {
-            color: var(--text-secondary);
-        }
+    html,
+    body {
+      height: 100%;
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+      background: radial-gradient(circle at top, #151a3a 0, #050712 45%, #020309 100%);
+      color: var(--text);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
 
-        .proof-copy {
-            flex: 1 1 320px;
-            font-size: 20px;
-            line-height: 1.6;
-            color: var(--text-primary);
-            margin: 0;
-        }
+    body {
+      overflow-y: scroll;
+    }
 
-        .proof-stats {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+    section {
+      min-height: 100vh;
+      scroll-snap-align: start;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px;
+      position: relative;
+    }
 
-        .proof-stat {
-            min-width: 160px;
-            padding: 14px 18px;
-            border-radius: 18px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
 
-        .proof-stat-value {
-            font-size: 26px;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
+    header.main-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
 
-        .proof-stat-label {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-secondary);
-        }
+    .nav-inner {
+      width: 100%;
+      max-width: var(--max-w);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(5, 7, 18, 0.92);
+      border-radius: 999px;
+      padding: 10px 18px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      backdrop-filter: blur(16px);
+      pointer-events: auto;
+    }
 
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
 
-        .result-card {
-            position: relative;
-            padding: 32px;
-            border-radius: 24px;
-            background: var(--bg-secondary);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            transition: transform 0.3s;
-        }
+    .brand-badge {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 20% 0, #ffffff, #ff5b5b 45%, #ff9a62 100%);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #050712;
+      box-shadow: 0 0 18px rgba(248, 134, 90, 0.7);
+    }
 
-        .result-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at top right, rgba(0, 212, 255, 0.18), transparent 60%);
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
-        }
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+    }
 
-        .result-card:hover {
-            transform: translateY(-6px);
-        }
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      padding-bottom: 2px;
+    }
 
-        .result-card:hover::after {
-            opacity: 1;
-        }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, #ff5b5b, #ff9a62);
+      transition: width 0.18s ease-out;
+    }
 
-        .result-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px 16px;
-            font-size: 12px;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--text-secondary);
-        }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
 
-        .result-client {
-            font-weight: 700;
-            color: var(--text-primary);
-        }
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-        .result-quote {
-            font-size: 20px;
-            line-height: 1.6;
-            font-weight: 600;
-            margin: 0;
-            color: var(--text-primary);
-        }
+    .btn-pill {
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background-image: linear-gradient(var(--bg-alt), var(--bg-alt)),
+        linear-gradient(90deg, #ff5b5b, #ff9a62);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      padding: 8px 16px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #fff;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 0 18px rgba(248, 134, 90, 0.35);
+    }
 
-        .result-metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 12px;
-        }
+    .btn-pill span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 9px rgba(34, 197, 94, 0.8);
+    }
 
-        .result-metric {
-            padding: 12px 14px;
-            border-radius: 16px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-        }
+    /* HERO */
 
-        .metric-value {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
+    #hero {
+      padding-top: 120px;
+    }
 
-        .metric-label {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-secondary);
-        }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 40px;
+      align-items: center;
+    }
 
-        .result-link {
-            margin-top: auto;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            font-weight: 600;
-            color: var(--accent-primary);
-            text-decoration: none;
-        }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
 
-        .result-link span {
-            transition: transform 0.3s;
-        }
+    .chip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: conic-gradient(from 120deg, #ff9a62, #ff5b5b, #ff9a62);
+      box-shadow: 0 0 14px rgba(248, 134, 90, 0.6);
+    }
 
-        .result-link:hover span {
-            transform: translateX(4px);
-        }
+    .hero-title {
+      font-size: clamp(34px, 4.1vw, 46px);
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
 
-        /* Pricing Section */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+    .hero-title span.accent {
+      background: linear-gradient(120deg, #ff9a62, #ff5b5b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-        .pricing-card {
-            background: var(--bg-secondary);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.4s;
-            position: relative;
-        }
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 420px;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
 
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(0, 212, 255, 0.3);
-            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
-        }
+    .hero-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 22px 0;
+    }
 
-        .pricing-card-featured {
-            border: 2px solid rgba(0, 212, 255, 0.4);
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(124, 58, 237, 0.12));
-            position: relative;
-        }
+    .metric-pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: radial-gradient(circle at top left, rgba(248, 134, 90, 0.22), #050712 70%);
+      font-size: 11px;
+      color: var(--muted);
+    }
 
-        .pricing-card-featured::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--gradient-1);
-            opacity: 0.05;
-            border-radius: 24px;
-            z-index: -1;
-        }
+    .metric-pill strong {
+      color: #e5e7eb;
+      margin-right: 4px;
+    }
 
-        .featured-badge {
-            position: absolute;
-            top: -12px;
-            right: 30px;
-            background: var(--gradient-1);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
-        }
+    .hero-footer {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--muted);
+    }
 
-        .pricing-header {
-            margin-bottom: 30px;
-        }
+    .hero-badge-secure {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.9);
+    }
 
-        .pricing-header h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--text-primary);
-        }
+    .hero-badge-secure span.icon {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+    }
 
-        .pricing-audience {
-            color: var(--text-secondary);
-            font-size: 14px;
-            line-height: 1.6;
-            margin: 0;
-        }
+    /* Hero 3D */
 
-        .pricing-price {
-            margin-bottom: 30px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    .hero-3d-wrapper {
+      position: relative;
+      min-height: 320px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 55%, #000 100%);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      box-shadow:
+        0 24px 80px rgba(15, 23, 42, 0.9),
+        0 0 0 1px rgba(148, 163, 184, 0.15);
+    }
 
-        .price-amount {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 8px;
-            min-height: 60px;
-        }
+    spline-viewer#hero-3d {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
 
-        .price-amount-contact {
-            justify-content: center;
-            align-items: center;
-        }
+    .hero-3d-overlay {
+      position: absolute;
+      inset: auto 18px 18px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--muted);
+      pointer-events: none;
+    }
 
-        .price-amount-contact .price-contact {
-            text-align: center;
-        }
+    .hero-3d-overlay span.label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 10px;
+    }
 
-        .price-currency {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-right: 4px;
-        }
+    .hero-3d-overlay .pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 14px rgba(34, 197, 94, 0.8);
+    }
 
-        .price-range {
-            font-size: 48px;
-            font-weight: 700;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-        }
+    /* Generic section styling */
 
-        .price-contact {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--text-primary);
-            background: none;
-            -webkit-background-clip: unset;
-            -webkit-text-fill-color: var(--text-primary);
-            background-clip: unset;
-        }
+    .section-title {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
 
-        .price-period {
-            color: var(--text-secondary);
-            font-size: 14px;
-            margin-bottom: 12px;
-        }
+    .section-kicker {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
 
-        .price-monthly {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
+    .section-description {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 24px;
+    }
 
-        .price-note {
-            font-size: 14px;
-            font-weight: 400;
-            color: var(--text-secondary);
-        }
+    .section-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
 
-        .pricing-features {
-            flex: 1;
-            margin-bottom: 30px;
-        }
+    .card {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.94), #020617);
+      border-radius: 22px;
+      padding: 18px 18px 20px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
 
-        .pricing-features h4 {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-        }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top left, rgba(248, 134, 90, 0.15), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.25s ease-out;
+    }
 
-        .pricing-features ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+    .card:hover::before {
+      opacity: 1;
+    }
 
-        .pricing-features li {
-            padding: 12px 0;
-            color: var(--text-secondary);
-            font-size: 15px;
-            line-height: 1.6;
-            position: relative;
-            padding-left: 28px;
-        }
+    .card h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
 
-        .pricing-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent-primary);
-            font-weight: 700;
-            font-size: 18px;
-        }
+    .card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
 
-        .pricing-card-featured .pricing-features li::before {
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+    /* Pricing */
 
-        /* CTA Section */
-        .cta-section {
-            background: var(--bg-secondary);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            padding: 80px 60px;
-            text-align: center;
-            margin: 100px 50px;
-            max-width: 1300px;
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--gradient-1);
-            opacity: 0.05;
-            border-radius: 30px;
-        }
-        
-        .cta-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .cta-section h2 {
-            margin-bottom: 20px;
-        }
-        
-        .cta-section p {
-            font-size: 20px;
-            color: var(--text-secondary);
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .cta-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-top: 60px;
-            padding-top: 60px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 48px;
-            font-weight: 700;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 10px;
-        }
-        
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
-        
-        /* Footer */
-        footer {
-            padding: 60px 50px 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 50px;
-        }
-        
-        .footer-brand {
-            max-width: 400px;
-        }
-        
-        .footer-logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 28px;
-            font-weight: 700;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
-        }
-        
-        .footer-brand p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-link {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 18px;
-            transition: all 0.3s;
-        }
-        
-        .social-link svg {
-            width: 20px;
-            height: 20px;
-        }
-        
-        .social-link:hover {
-            background: var(--gradient-1);
-            color: white;
-            border-color: transparent;
-            transform: translateY(-3px);
-        }
-        
-        .footer-links h4 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-        
-        .footer-links ul {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent-primary);
-        }
-        
-        .footer-bottom {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
-        
-        /* Scroll Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .hero-visual {
-                max-width: 440px;
-                margin: 0 auto;
-                justify-content: center;
-            }
+    #pricing .section-card-grid {
+      align-items: stretch;
+    }
 
-            .floating-card {
-                width: 100%;
-                height: auto;
-            }
-            
-            h1 {
-                font-size: 48px;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            nav {
-                padding: 20px 25px;
-            }
-            
-            .logo {
-                height: 40px;
-            }
-            
-            .logo-container {
-                height: 40px;
-            }
-            
-            .logo-pro9 {
-                font-size: 16px;
-            }
-            
-            .logo-o {
-                width: 16px;
-                height: 16px;
-            }
-            
-            .logo-o-inner {
-                width: 8px;
-                height: 8px;
-            }
-            
-            .logo-left {
-                padding: 0 15px;
-            }
-            
-            .logo-right {
-                padding: 6px 15px;
-                font-size: 9px;
-            }
-            
-            .nav-links {
-                gap: 15px;
-            }
+    .price-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 260px;
+    }
 
-            .nav-links a {
-                font-size: 12px;
-            }
-            
-            .hero {
-                padding: 80px 25px 50px;
-            }
-            
-            h1 {
-                font-size: 36px;
-            }
-            
-            .section {
-                padding: 60px 25px;
-            }
-            
-            h2 {
-                font-size: 32px;
-            }
-            
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .cta-stats {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .cta-section {
-                margin: 60px 25px;
-                padding: 50px 30px;
-            }
+    .price-header {
+      margin-bottom: 12px;
+    }
 
-            .results-proof {
-                flex-direction: column;
-                padding: 28px;
-            }
+    .price-label {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
 
-            .proof-copy {
-                font-size: 18px;
-            }
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
 
-            .results-grid {
-                grid-template-columns: 1fr;
-            }
+    .price-row .amount {
+      font-size: 24px;
+      font-weight: 600;
+    }
 
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
+    .price-row .suffix {
+      font-size: 12px;
+      color: var(--muted);
+    }
 
-            .pricing-card {
-                padding: 30px;
-            }
+    .price-tagline {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
 
-            .price-range {
-                font-size: 36px;
-            }
+    .price-features {
+      font-size: 12px;
+      color: var(--muted);
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 14px;
+    }
 
-            .price-contact {
-                font-size: 28px;
-            }
+    .price-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
 
-            .price-amount {
-                min-height: 50px;
-            }
+    .price-features li::before {
+      content: "•";
+      color: #4ade80;
+      margin-top: 1px;
+      font-size: 10px;
+    }
 
-            .featured-badge {
-                right: 20px;
-                font-size: 11px;
-                padding: 5px 12px;
-            }
-        }
-    </style>
+    .btn-outline {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 8px 14px;
+      background: transparent;
+      color: #e5e7eb;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      cursor: pointer;
+      align-self: flex-start;
+    }
+
+    .price-card.highlight {
+      border-color: rgba(248, 134, 90, 0.9);
+      box-shadow: 0 0 22px rgba(248, 134, 90, 0.35);
+    }
+
+    .badge-popular {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(248, 134, 90, 0.2);
+      border: 1px solid rgba(248, 134, 90, 0.8);
+      color: #fed7aa;
+    }
+
+    /* CTA */
+
+    #cta .cta-box {
+      border-radius: 30px;
+      background: radial-gradient(circle at top left, rgba(248, 134, 90, 0.2), #020617 60%);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 32px 24px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .cta-title {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .cta-input-group {
+      display: flex;
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      overflow: hidden;
+    }
+
+    .cta-input-group input {
+      border: none;
+      background: transparent;
+      padding: 9px 12px;
+      color: #e5e7eb;
+      font-size: 13px;
+      min-width: 220px;
+      outline: none;
+    }
+
+    .cta-input-group button {
+      border-radius: 0;
+      border-left: 1px solid rgba(248, 134, 90, 0.6);
+      box-shadow: none;
+      white-space: nowrap;
+    }
+
+    /* Scroll animation initial states */
+
+    .section-animate {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .section-animate.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-3d-wrapper {
+        min-height: 280px;
+      }
+      .nav-links {
+        display: none;
+      }
+      header.main-nav {
+        padding-inline: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="bg-animation">
-        <div class="bg-gradient bg-gradient-1"></div>
-        <div class="bg-gradient bg-gradient-2"></div>
-        <div class="bg-gradient bg-gradient-3"></div>
+  <!-- NAVBAR -->
+  <header class="main-nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-badge">P9</div>
+        <span>Pro9 Digital</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#portfolio">Work</a>
+      </nav>
+      <div class="nav-cta">
+        <button class="btn-pill">
+          <span class="dot"></span>
+          Free website teardown
+        </button>
+      </div>
     </div>
+  </header>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">
-            <div class="logo-container">
-                <div class="logo-left">
-                    <div class="logo-pro9">
-                        <span>PR</span>
-                        <div class="logo-o">
-                            <div class="logo-o-inner"></div>
-                        </div>
-                        <span class="logo-9">9</span>
-                    </div>
-                </div>
-                <div class="logo-right">
-                    <div>DIGITAL</div>
-                    <div>WEB</div>
-                    <div>SOLUTIONS</div>
-                </div>
-            </div>
+  <!-- HERO + 3D -->
+  <section id="hero">
+    <div class="container hero-grid section-animate">
+      <div>
+        <div class="chip">
+          <span class="chip-dot"></span>
+          Remote web partner for U.S. local businesses
         </div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#skills">Challenges</a></li>
-            <li><a href="#projects">Solution</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#contact">Get Started</a></li>
-        </ul>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-text">
-                <div class="hero-label">Accepting only 2 new projects this month</div>
-                <h1>
-                    Your business deserves a<br>
-                    <span class="gradient-text">website that actually sells</span>
-                </h1>
-                <p class="hero-description">
-                    If you run a small business and your website is not bringing new customers, I build conversion-focused experiences that move from first click to signed proposal entirely over email, using a guided scope form so you reclaim hours while we handle the heavy lifting.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        Start your async diagnosis
-                        <span>&gt;</span>
-                    </a>
-                    <a href="#projects" class="btn btn-secondary">
-                        See how it works
-                    </a>
-                </div>
-            </div>
-            
-            <div class="hero-visual">
-                <div class="floating-card">
-                    <div class="card-header">
-                        <div class="card-dot"></div>
-                        <div class="card-dot"></div>
-                        <div class="card-dot"></div>
-                    </div>
-                    <div class="code-line">
-                        <span class="code-keyword">const</span> launchPlan = {
-                    </div>
-                    <div class="code-line">
-                        &nbsp;&nbsp;goal: <span class="code-string">"More local customers"</span>,
-                    </div>
-                    <div class="code-line">
-                        &nbsp;&nbsp;timeline: <span class="code-string">"21-day launch"</span>,
-                    </div>
-                    <div class="code-line">
-                        &nbsp;&nbsp;support: <span class="code-string">"30-day care"</span>
-                    </div>
-                    <div class="code-line">
-                        };
-                    </div>
-                </div>
-        </div>
-    </section>
+        <h1 class="hero-title">
+          I turn outdated websites into
+          <span class="accent">modern, revenue-ready machines.</span>
+        </h1>
 
-    <!-- Skills Section -->
-    <section class="section fade-in" id="skills">
-        <div class="section-header">
-            <div class="section-label">The problem we solve</div>
-            <h2>Are customers choosing competitors first?</h2>
-            <p class="section-description">
-                When your website looks outdated or is missing, people doubt your business before you can speak with them. Let's remove the blockers that keep new clients from reaching out.
-            </p>
-        </div>
-        
-        <div class="skills-grid">
-            <div class="skill-card">
-                <div class="skill-icon">01</div>
-                <h3>Your website feels outdated and slow</h3>
-                <p>Prospects leave in seconds when pages look old or take too long to load. We rebuild the experience with modern layouts, fast hosting, and copy that makes your value clear.</p>
-                <div class="skill-tags">
-                    <span class="skill-tag">Modern design</span>
-                    <span class="skill-tag">Mobile-first</span>
-                    <span class="skill-tag">Fast load time</span>
-                    <span class="skill-tag">Trust-building copy</span>
-                    <span class="skill-tag">Secure hosting</span>
-                </div>
-            </div>
-            
-            <div class="skill-card">
-                <div class="skill-icon">02</div>
-                <h3>People cannot find you where they search</h3>
-                <p>We align your content with local search keywords and clear offers so customers discover you before they click on competitors.</p>
-                <div class="skill-tags">
-                    <span class="skill-tag">Local SEO ready</span>
-                    <span class="skill-tag">Google Business boost</span>
-                    <span class="skill-tag">Conversion copy</span>
-                    <span class="skill-tag">Analytics setup</span>
-                </div>
-            </div>
-            
-            <div class="skill-card">
-                <div class="skill-icon">03</div>
-                <h3>Visitors do not turn into inquiries</h3>
-                <p>Every page guides people to contact you with buttons, forms, and WhatsApp prompts so leads never slip away.</p>
-                <div class="skill-tags">
-                    <span class="skill-tag">Lead capture</span>
-                    <span class="skill-tag">WhatsApp CTA</span>
-                    <span class="skill-tag">Smart forms</span>
-                    <span class="skill-tag">Follow-up alerts</span>
-                </div>
-            </div>
-            
-            <div class="skill-card">
-                <div class="skill-icon">04</div>
-                <h3>You do not have time to manage tech</h3>
-                <p>I handle updates, integrations, and training so you can focus on the business while the website keeps selling.</p>
-                <div class="skill-tags">
-                    <span class="skill-tag">Done-for-you setup</span>
-                    <span class="skill-tag">Easy updates</span>
-                    <span class="skill-tag">Team handoff</span>
-                    <span class="skill-tag">30-day support</span>
-                </div>
-            </div>
-        </div>
-    </section>
+        <p class="hero-subtitle">
+          Strategy, design and implementation — in one place. I rebuild your
+          website so it loads fast, converts better and actually supports your
+          day-to-day operations.
+        </p>
 
-    <!-- Projects Section -->
-    <section class="section fade-in" id="projects">
-        <div class="section-header">
-            <div class="section-label">The plan</div>
-            <h2>How we build a website that converts</h2>
-            <p class="section-description">
-                A focused three-step process to launch a sales-ready site in under 21 days with personal guidance at every milestone.
-            </p>
+        <div class="hero-metrics">
+          <div class="metric-pill">
+            <strong>Less friction, more bookings.</strong> Sites built to
+            convert on mobile.
+          </div>
+          <div class="metric-pill">
+            <strong>End-to-end.</strong> Copy, design, dev & integrations.
+          </div>
         </div>
-        
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-image">Step 01</div>
-                <div class="project-content">
-                    <h3>Free website & competitor diagnosis</h3>
-                    <p>Share your goals through a guided scope form, then I audit your site, map your ideal customer, and email back the quick-win plan, proposal, and invoice-ready next steps—no meetings required.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Current site audit</span>
-                        <span class="tech-badge">Market snapshot</span>
-                        <span class="tech-badge">Conversion goals</span>
-                    </div>
-                    <a href="#contact" class="project-link">
-                        Send your scope form
-                        <span>&gt;</span>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="project-card">
-                <div class="project-image">Step 02</div>
-                <div class="project-content">
-                    <h3>Conversion blueprint & copywriting</h3>
-                    <p>You receive wireframes, copy, and SEO-backed structure tailored to how your customers decide, so every page sells for you.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Wireframes</span>
-                        <span class="tech-badge">Sales copy</span>
-                        <span class="tech-badge">Local SEO keywords</span>
-                        <span class="tech-badge">Visual direction</span>
-                    </div>
-                    <a href="#contact" class="project-link">
-                        Preview your plan
-                        <span>&gt;</span>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="project-card">
-                <div class="project-image">Step 03</div>
-                <div class="project-content">
-                    <h3>Launch, analytics & training</h3>
-                    <p>We launch the new site, connect your lead capture to CRM + SMS/email alerts, and deliver on-demand training clips so your team stays in control without juggling messaging apps.</p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Launch checklist</span>
-                        <span class="tech-badge">Speed optimization</span>
-                        <span class="tech-badge">Tracking setup</span>
-                        <span class="tech-badge">30-day care</span>
-                    </div>
-                    <a href="#contact" class="project-link">
-                        Launch this month
-                        <span>&gt;</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="results-wrap">
-            <div class="results-proof">
-                <div class="proof-badge">
-                    <span class="proof-label">Track record</span>
-                    <span class="proof-years">Local service focus</span>
-                </div>
-                <p class="proof-copy">
-                    5+ years building websites for local service, retail, and hospitality brands. Clients typically report 30-50% more qualified inquiries within the first 60 days.
-                </p>
-                <div class="proof-stats">
-                    <div class="proof-stat">
-                        <div class="proof-stat-value">30-50%</div>
-                        <div class="proof-stat-label">More qualified inquiries</div>
-                    </div>
-                    <div class="proof-stat">
-                        <div class="proof-stat-value">60 days</div>
-                        <div class="proof-stat-label">Average time to feel the lift</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="results-grid">
-                <article class="result-card">
-                    <div class="result-meta">
-                        <span class="result-client">Renata — Artisan bakery owner</span>
-                        <span class="result-industry">Food & beverage</span>
-                    </div>
-                    <p class="result-quote">"In two months we saw 40% more email orders and started getting catering requests from new neighborhoods."</p>
-                    <div class="result-metrics">
-                        <div class="result-metric">
-                            <div class="metric-value">+40%</div>
-                            <div class="metric-label">Leads</div>
-                        </div>
-                        <div class="result-metric">
-                            <div class="metric-value">3 weeks</div>
-                            <div class="metric-label">Turnaround</div>
-                        </div>
-                        <div class="result-metric">
-                            <div class="metric-value">Menu UX</div>
-                            <div class="metric-label">High-converting layout</div>
-                        </div>
-                    </div>
-                    <a href="#contact" class="result-link">
-                        I want results like this
-                        <span>&gt;</span>
-                    </a>
-                </article>
-                
-                <article class="result-card">
-                    <div class="result-meta">
-                        <span class="result-client">Joao — Family dental clinic</span>
-                        <span class="result-industry">Healthcare</span>
-                    </div>
-                    <p class="result-quote">"The new site finally shows our expertise. Online bookings doubled and patients mention the website before their first visit."</p>
-                    <div class="result-metrics">
-                        <div class="result-metric">
-                            <div class="metric-value">2x</div>
-                            <div class="metric-label">Bookings</div>
-                        </div>
-                        <div class="result-metric">
-                            <div class="metric-value">SEO boost</div>
-                            <div class="metric-label">Local visibility</div>
-                        </div>
-                        <div class="result-metric">
-                            <div class="metric-value">Patient trust</div>
-                            <div class="metric-label">Mentioned pre-visit</div>
-                        </div>
-                    </div>
-                    <a href="#contact" class="result-link">
-                        Book my free diagnosis
-                        <span>&gt;</span>
-                    </a>
-                </article>
-            </div>
-        </div>
-    </section>
 
-    <!-- Pricing Section -->
-    <section class="section fade-in" id="pricing">
-        <div class="section-header">
-            <div class="section-label">Transparent Pricing</div>
-            <h2>Choose the package that fits your business</h2>
-            <p class="section-description">
-                Clear pricing with transparent deliverables. Standard packages with fixed rates, plus custom solutions for unique needs.
-            </p>
+        <div class="hero-footer">
+          <div class="hero-badge-secure">
+            <span class="icon">✓</span>
+            <span>Flat pricing. No hourly surprises.</span>
+          </div>
+          <span>Get a free 3–5 min teardown of your current website.</span>
         </div>
-        
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <h3>The Starter Site</h3>
-                    <p class="pricing-audience">Sole proprietors, freelancers, or services needing an online brochure.</p>
-                </div>
-                <div class="pricing-price">
-                    <div class="price-amount">
-                        <span class="price-currency">$</span>
-                        <span class="price-range">2,500</span>
-                    </div>
-                    <div class="price-period">One-time setup</div>
-                    <div class="price-monthly">$99/month <span class="price-note">(Basic Hosting)</span></div>
-                </div>
-                <div class="pricing-features">
-                    <h4>What's included:</h4>
-                    <ul>
-                        <li>3 Pages (Home, Services, Contact)</li>
-                        <li>Mobile-Ready Design</li>
-                        <li>Basic SEO</li>
-                    </ul>
-                </div>
-                <a href="#contact" class="btn btn-secondary" style="width: 100%; justify-content: center; margin-top: auto;">
-                    Get Started
-                </a>
-            </div>
-            
-            <div class="pricing-card pricing-card-featured">
-                <div class="featured-badge">Recommended</div>
-                <div class="pricing-header">
-                    <h3>The Lead Generator</h3>
-                    <p class="pricing-audience">Small service businesses (plumbers, agencies, consultants) focused on getting leads.</p>
-                </div>
-                <div class="pricing-price">
-                    <div class="price-amount">
-                        <span class="price-currency">$</span>
-                        <span class="price-range">4,500</span>
-                    </div>
-                    <div class="price-period">One-time setup</div>
-                    <div class="price-monthly">$129/month <span class="price-note">(CMS Hosting)</span></div>
-                </div>
-                <div class="pricing-features">
-                    <h4>What's included:</h4>
-                    <ul>
-                        <li>5-7 Pages</li>
-                        <li>CMS (for testimonials/blog)</li>
-                        <li>1 Lead Form Integration (CRM/Email)</li>
-                        <li>Basic Copy Refinement</li>
-                    </ul>
-                </div>
-                <a href="#contact" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: auto;">
-                    Get Started
-                </a>
-            </div>
-            
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <h3>The Scaler (Complex)</h3>
-                    <p class="pricing-audience">Businesses needing a high-volume blog, multiple custom integrations, or a small e-commerce element.</p>
-                </div>
-                <div class="pricing-price">
-                    <div class="price-amount">
-                        <span class="price-currency">$</span>
-                        <span class="price-range">7,500</span>
-                    </div>
-                    <div class="price-period">One-time setup</div>
-                    <div class="price-monthly">$169/month</div>
-                </div>
-                <div class="pricing-features">
-                    <h4>What's included:</h4>
-                    <ul>
-                        <li>Up to 10 Pages</li>
-                        <li>Advanced CMS/E-commerce Integration</li>
-                        <li>Custom UI/Animations</li>
-                        <li>Detailed SEO setup</li>
-                        <li>Full Copywriting</li>
-                    </ul>
-                </div>
-                <a href="#contact" class="btn btn-secondary" style="width: 100%; justify-content: center; margin-top: auto;">
-                    Get Started
-                </a>
-            </div>
+      </div>
 
-            <div class="pricing-card">
-                <div class="pricing-header">
-                    <h3>The Flagship (Custom)</h3>
-                    <p class="pricing-audience">Enterprise-level businesses requiring custom solutions, advanced features, or unique requirements beyond standard packages.</p>
-                </div>
-                <div class="pricing-price">
-                    <div class="price-amount price-amount-contact">
-                        <span class="price-contact">Contact Us</span>
-                    </div>
-                    <div class="price-period">Custom pricing</div>
-                    <div class="price-monthly">Flexible hosting options</div>
-                </div>
-                <div class="pricing-features">
-                    <h4>What's included:</h4>
-                    <ul>
-                        <li>Unlimited Pages & Custom Architecture</li>
-                        <li>Full E-commerce Platform Integration</li>
-                        <li>Multi-language & Multi-region Support</li>
-                        <li>Custom API Integrations & Third-party Tools</li>
-                        <li>Advanced Analytics & Custom Dashboards</li>
-                        <li>Dedicated Account Management</li>
-                        <li>Priority Support & Ongoing Maintenance</li>
-                        <li>Custom Development & Unique Features</li>
-                    </ul>
-                </div>
-                <a href="#contact" class="btn btn-secondary" style="width: 100%; justify-content: center; margin-top: auto;">
-                    Contact Us
-                </a>
-            </div>
+      <div class="hero-3d-wrapper">
+        <!-- Replace the URL below with your own Spline scene export -->
+        <spline-viewer
+          id="hero-3d"
+          url="https://prod.spline.design/LEvjG3OETYd2GsRw/scene.splinecode"
+        ></spline-viewer>
+        <!-- This URL is from Spline's official viewer demo; you’ll later export your own scene from Spline and swap it. :contentReference[oaicite:1]{index=1} -->
+        <div class="hero-3d-overlay">
+          <div>
+            <span class="label">Interactive 3D preview</span><br />
+            <span>Scroll, drag and explore while the content adjusts.</span>
+          </div>
+          <div class="pulse"></div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- CTA Section -->
-        <section class="cta-section fade-in" id="contact">
-        <div class="cta-content">
-            <h2>Your next customer is already looking for you</h2>
-            <p>Skip the calendar ping-pong—complete a 10-minute scope form and get a documented diagnosis, proposal, and invoice-ready action plan delivered straight to your inbox. Everything stays async, time-saving, and crystal clear so you can make confident moves without phone calls.</p>
-            
-            <div class="hero-buttons" style="justify-content: center;">
-                <a href="mailto:lucasnaveiro@outlook.com" class="btn btn-primary">
-                    Start the async kickoff
-                    <span>&gt;</span>
-                </a>
-            </div>
-            
-            <div class="cta-stats">
-                <div class="stat-item">
-                    <div class="stat-number">45%</div>
-                    <div class="stat-label">Average lead growth after launch</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">21 days</div>
-                    <div class="stat-label">Typical timeline from kickoff</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">2 spots</div>
-                    <div class="stat-label">Available this month for new sites</div>
-                </div>
-            </div>
+  <!-- WHAT YOU DO / VALUE PROPOSITION -->
+  <section id="value">
+    <div class="container section-animate">
+      <div class="section-kicker">Why this matters</div>
+      <h2 class="section-title">
+        Your website is either a silent cost or a quiet sales machine.
+      </h2>
+      <p class="section-description">
+        Most small business websites in the U.S. are slow, outdated and
+        impossible to update. I redesign them into assets you can rely on:
+        mobile-first, conversion-focused and fully aligned with how your
+        business actually works.
+      </p>
+      <div class="section-card-grid">
+        <div class="card">
+          <h3>Strategy first</h3>
+          <p>
+            I start by understanding your business model, ideal customers and
+            local competition — then design backwards from the outcomes you
+            want, not from a template.
+          </p>
         </div>
-    </section>
+        <div class="card">
+          <h3>Conversion-focused UX</h3>
+          <p>
+            Layouts, copy and calls-to-action are built to make it easy for
+            visitors to call, book or buy — especially on mobile.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Operational integration</h3>
+          <p>
+            Menus, services, time slots, inventory or FAQs wired into a simple
+            CMS so your team can update things without touching code.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <div class="footer-logo">Lucas Aveiro</div>
-                <p>Conversion-focused web partner helping small businesses win more leads with modern, trustworthy websites.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link" title="GitHub" aria-label="GitHub">
-                        <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
-                            <path fill="currentColor"
-                                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.42-1.305.763-1.605-2.665-.303-5.466-1.332-5.466-5.93 0-1.31.468-2.382 1.235-3.22-.125-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3.003-.403c1.02 0 2.048.137 3.003.403 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.243 2.873.118 3.176.77.838 1.233 1.91 1.233 3.22 0 4.61-2.803 5.624-5.475 5.92.431.372.815 1.102.815 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 21.796 24 17.302 24 12c0-6.63-5.373-12-12-12Z" />
-                        </svg>
-                    </a>
-                    <a href="#" class="social-link" title="LinkedIn" aria-label="LinkedIn">
-                        <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
-                            <path fill="currentColor"
-                                d="M20.447 20.452h-3.557v-5.569c0-1.328-.024-3.037-1.85-3.037-1.851 0-2.134 1.445-2.134 2.939v5.667H9.352V9h3.403v1.561h.049c.474-.9 1.632-1.85 3.362-1.85 3.594 0 4.258 2.366 4.258 5.451v6.29ZM5.337 7.433a1.983 1.983 0 0 1-1.98-1.987 1.983 1.983 0 1 1 3.965 0 1.983 1.983 0 0 1-1.985 1.987Zm1.777 13.019H3.56V9h3.554v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#skills">Challenges</a></li>
-                    <li><a href="#projects">Solution</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#contact">Get Started</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-links">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="#contact">Conversion website design</a></li>
-                    <li><a href="#contact">Website modernization</a></li>
-                    <li><a href="#contact">Local SEO content</a></li>
-                    <li><a href="#contact">WhatsApp & lead capture</a></li>
-                    <li><a href="#contact">Care and support</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2024 Lucas Aveiro. Conversion-focused websites for small businesses.</p>
-        </div>
-    </footer>
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container section-animate">
+      <div class="section-kicker">Services</div>
+      <h2 class="section-title">Done-for-you web presence, end-to-end.</h2>
+      <p class="section-description">
+        I don’t just “build a website”. I take care of the full stack — from
+        research and copy to design, implementation and launch.
+      </p>
 
-    <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
+      <div class="section-card-grid">
+        <div class="card">
+          <h3>Website transformation</h3>
+          <p>
+            Full redesign of your existing website with modern visuals, clear
+            structure and clean code. Ideal for businesses stuck with a 2010-era
+            layout.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Conversion copy & structure</h3>
+          <p>
+            Headlines, sections and calls-to-action written to fit how your
+            customers actually make decisions — not generic marketing fluff.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Bookings & scheduling</h3>
+          <p>
+            Online booking flows, contact forms, lead capture, and integrations
+            with your existing calendar or CRM tools.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Menus, services & catalogs</h3>
+          <p>
+            Dynamic menus for restaurants, services pages for clinics, or
+            product lists for trades — editable by you at any time.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Ongoing care & improvements</h3>
+          <p>
+            Monthly plans for updates, small changes, SEO tweaks, speed and
+            security, so your website doesn’t age badly again.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="container section-animate">
+      <div class="section-kicker">Process</div>
+      <h2 class="section-title">A simple, repeatable system — no chaos.</h2>
+      <p class="section-description">
+        I work with owners who are busy running their business. The process is
+        structured so you make a few key decisions and I handle execution.
+      </p>
+      <div class="section-card-grid">
+        <div class="card">
+          <h3>01. Teardown & roadmap</h3>
+          <p>
+            I record a short video breaking down your current website, what’s
+            working, what’s broken and a concrete plan to fix it.
+          </p>
+        </div>
+        <div class="card">
+          <h3>02. Wireframes & copy</h3>
+          <p>
+            You approve page structure and core messaging before I design —
+            making sure we’re aligned on what the site must achieve.
+          </p>
+        </div>
+        <div class="card">
+          <h3>03. Design & build</h3>
+          <p>
+            I design the interface, implement animations and build everything in
+            a modern stack that’s easy to maintain.
+          </p>
+        </div>
+        <div class="card">
+          <h3>04. Launch & care</h3>
+          <p>
+            I handle launch, performance tuning and handover — plus ongoing care
+            if you choose a monthly plan.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO / SOCIAL PROOF (placeholder) -->
+  <section id="portfolio">
+    <div class="container section-animate">
+      <div class="section-kicker">Selected work</div>
+      <h2 class="section-title">Websites built to be used, not just seen.</h2>
+      <p class="section-description">
+        I focus on projects where the website has a clear job: bring more
+        clients, simplify bookings or explain the offer clearly. I’ll plug your
+        best 2–3 case studies here with before/after snapshots and a quick
+        summary of impact.
+      </p>
+      <div class="section-card-grid">
+        <div class="card">
+          <h3>Local clinic – lead clarity</h3>
+          <p>
+            Simplified booking journey and clarified services by condition.
+            Result: more appointment requests and fewer “what do you actually
+            do?” calls.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Donut shop – seasonal menu</h3>
+          <p>
+            Built a CMS-driven menu for daily flavor rotation + simple process
+            to publish promos. Easy for the team, better for customers.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Trade service – credibility boost</h3>
+          <p>
+            Upgraded from an outdated template to a modern, trust-focused site
+            with reviews, guarantees and clear service areas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container section-animate">
+      <div class="section-kicker">Pricing</div>
+      <h2 class="section-title">Simple, transparent packages. No hourly billing.</h2>
+      <p class="section-description">
+        Every project starts with a free teardown. Once we agree on scope, the
+        price is fixed — not an estimate that grows over time.
+      </p>
+
+      <div class="section-card-grid">
+        <div class="card price-card">
+          <div>
+            <div class="price-header">
+              <div class="price-label">Essentials</div>
+              <div class="price-row">
+                <span class="amount">from $1,500</span>
+                <span class="suffix">one-time</span>
+              </div>
+              <p class="price-tagline">
+                Perfect for small local businesses that need a clean, modern
+                website without complex systems.
+              </p>
+            </div>
+            <ul class="price-features">
+              <li>1–3 core pages (Home, About, Contact/Services).</li>
+              <li>Modern, mobile-first design.</li>
+              <li>Basic contact form or lead capture.</li>
+              <li>Launch support + 30 days of minor edits.</li>
+            </ul>
+          </div>
+          <button class="btn-outline">Talk about essentials</button>
+        </div>
+
+        <div class="card price-card highlight">
+          <div class="badge-popular">Most booked</div>
+          <div>
+            <div class="price-header">
+              <div class="price-label">Growth</div>
+              <div class="price-row">
+                <span class="amount">$2,500 – $4,500</span>
+                <span class="suffix">project</span>
+              </div>
+              <p class="price-tagline">
+                For clinics, restaurants and established services that need a
+                website tightly aligned with their operations.
+              </p>
+            </div>
+            <ul class="price-features">
+              <li>3–7 pages with clear structure and messaging.</li>
+              <li>Bookings, menus, services or simple inventory CMS.</li>
+              <li>Conversion-focused copywriting.</li>
+              <li>Performance & on-page SEO fundamentals.</li>
+              <li>45 days of post-launch support.</li>
+            </ul>
+          </div>
+          <button class="btn-pill">Apply for a Growth project</button>
+        </div>
+
+        <div class="card price-card">
+          <div>
+            <div class="price-header">
+              <div class="price-label">Care plan</div>
+              <div class="price-row">
+                <span class="amount">from $149</span>
+                <span class="suffix">per month</span>
+              </div>
+              <p class="price-tagline">
+                Keep your site fast, secure and updated. Ideal once your new
+                site is live.
+              </p>
+            </div>
+            <ul class="price-features">
+              <li>Unlimited small text & image edits.</li>
+              <li>Monthly updates & security checks.</li>
+              <li>Speed & SEO tweaks over time.</li>
+              <li>Priority support via email.</li>
+            </ul>
+          </div>
+          <button class="btn-outline">Add care to my project</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="cta">
+    <div class="container section-animate">
+      <div class="cta-box">
+        <div>
+          <div class="section-kicker">Next step</div>
+          <h2 class="cta-title">Get a free teardown of your current website.</h2>
+          <p class="section-description">
+            I’ll record a short video with what’s blocking your site today and
+            how I’d approach a rebuild — whether we work together or not.
+          </p>
+        </div>
+        <div class="cta-row">
+          <div class="cta-input-group">
+            <input
+              type="url"
+              placeholder="Paste your website URL (https://...)"
+              aria-label="Website URL"
+            />
+            <button class="btn-pill" type="button">
+              <span class="dot"></span>
+              Request teardown
+            </button>
+          </div>
+          <span>
+            You’ll get a 3–5 minute Loom video with honest feedback and a clear,
+            no-pressure proposal.
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCROLL / ANIMATION SCRIPT -->
+  <script>
+    window.addEventListener("load", () => {
+      // Basic fade-in on load for hero
+      const hero = document.querySelector("#hero .section-animate");
+      if (hero) {
+        hero.classList.add("is-visible");
+      }
+
+      // Animate sections on scroll using IntersectionObserver
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+            }
+          });
+        },
+        {
+          threshold: 0.35,
+        }
+      );
+
+      document.querySelectorAll(".section-animate").forEach((section) => {
+        if (section !== hero) observer.observe(section);
+      });
+
+      // GSAP advanced scroll experience
+      if (window.gsap && window.ScrollTrigger) {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const sections = gsap.utils.toArray("section");
+
+        // Smooth-ish snap between sections
+        ScrollTrigger.create({
+          trigger: document.body,
+          start: "top top",
+          end: "bottom bottom",
+          snap: 1 / (sections.length - 1),
+          duration: 0.4,
+          ease: "power1.inOut",
         });
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+        // Parallax-like subtle motion for section containers
+        sections.forEach((section) => {
+          const container = section.querySelector(".container");
+          if (!container) return;
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
+          gsap.fromTo(
+            container,
+            { y: 40, opacity: 0.9 },
+            {
+              y: -40,
+              opacity: 1,
+              scrollTrigger: {
+                trigger: section,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true,
+              },
+            }
+          );
         });
 
-        // Add active state to nav links on scroll
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const sections = document.querySelectorAll('section[id]');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
+        // Hero 3D subtle zoom on scroll
+        const hero3d = document.querySelector("#hero-3d");
+        if (hero3d) {
+          gsap.fromTo(
+            hero3d,
+            { scale: 1.02 },
+            {
+              scale: 1.08,
+              scrollTrigger: {
+                trigger: "#hero",
+                start: "top top",
+                end: "bottom top",
+                scrub: true,
+              },
+            }
+          );
+        }
+      }
+    });
+  </script>
 </body>
 </html>
-
-
-
